@@ -1,0 +1,1 @@
+# Google resolver API endpoints
