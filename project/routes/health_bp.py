@@ -1,2 +1,16 @@
-from flask import Blueprint
-health_bp = Blueprint('health', __name__)
+"""Health check endpoint."""
+from __future__ import annotations
+
+from flask import Blueprint, jsonify
+
+health_bp = Blueprint("health", __name__)
+
+
+@health_bp.get("/health")
+def health() -> tuple[dict, int]:
+    return jsonify({"status": "ok"}), 200
+
+
+@health_bp.get("/ping")
+def ping() -> tuple[dict, int]:
+    return jsonify({"message": "pong"}), 200
